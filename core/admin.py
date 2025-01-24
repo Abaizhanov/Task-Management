@@ -1,5 +1,10 @@
 from django.contrib import admin
-from .models import Task, Project
+from .models import User, Task, Project
+
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+    list_display = ('username', 'email', 'role', 'is_active')
+    list_filter = ('role', 'is_active')
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
