@@ -56,7 +56,7 @@ ROOT_URLCONF = 'task_management.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -137,6 +137,12 @@ REST_FRAMEWORK = {
     ],
 
     'PAGE_SIZE': 10,
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+
+    ],
 }
 
 LOGGING = {
@@ -164,3 +170,5 @@ LOGGING = {
     },
 
 }
+
+AUTH_USER_MODEL = 'core.User'  # Replace 'core' with the name of your app

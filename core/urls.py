@@ -17,4 +17,11 @@ router.register(r'tasks', TaskViewSet)
 urlpatterns = router.urls
 
 
+from django.urls import path
+from . import views
+
+urlpatterns += [
+    path('', views.index, name='index'),  # Your custom index view
+]
+
 
